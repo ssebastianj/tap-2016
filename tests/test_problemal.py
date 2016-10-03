@@ -4,15 +4,13 @@ from __future__ import absolute_import
 
 from tap.problemal.solucion import (
     puede_colocar_tira,
-    crear_arbol_pelotitas
+    crear_arbol_nodos
 )
 
 
 class TestProblemaL(object):
     def test_crear_arbol_pelotitas_diametro_4(self):
-        arbol = crear_arbol_pelotitas(4)
-
-        nodo_raiz = arbol.raiz
+        nodo_raiz = crear_arbol_nodos(4)
         assert nodo_raiz.diametro == 4
 
         nodo_izq_1 = nodo_raiz.tira_izq
@@ -31,7 +29,7 @@ class TestProblemaL(object):
         ) == 'S'
 
         assert puede_colocar_tira(
-            [(4, 4), (1, 4, 3, 2)]
+            [(4, 4), (1, 3, 4, 2)]
         ) == 'S'
 
         assert puede_colocar_tira(
